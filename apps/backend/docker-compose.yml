@@ -1,0 +1,24 @@
+name: piggy-backend-db
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: piggy-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: piggy
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: piggy
+    ports:
+      - '5685:5432'
+    volumes:
+      - piggy-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U piggy']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  piggy-postgres-data:
+    driver: local

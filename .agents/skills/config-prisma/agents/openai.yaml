@@ -1,0 +1,4 @@
+interface:
+  display_name: "Config Prisma"
+  short_description: "Initialize Prisma and the database in the backend"
+  default_prompt: "Initialize and standardize Prisma infrastructure in the NestJS backend with a technical seed at prisma/seed/main.ts (no module seeds), a docker-compose file compatible with DATABASE_URL from .env and with names derived from the project, a modular schema per module, and a simple DbModule plus PrismaService that matches the current pattern."
